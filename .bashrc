@@ -90,18 +90,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-#Telnet Verizon
-alias tel='telnet 159.67.156.51 259'
-# Connect AWS instance
-alias awscon='ssh -i "~/Downloads/SSH/MyEC2KeyPair.pem" ec2-user@ec2-54-214-154-23.us-west-2.compute.amazonaws.com'
-# SSH forwarding to vagrant boxes
-alias vagxapp='cd ~/DevOpsHomeLab/ && vagrant up && ssh -X -i .vagrant/machines/default/virtualbox/private_key -p 2222 vagrant@localhost '
-alias webex='cd ~/conference-box/ && vagrant up && ssh -X -i .vagrant/machines/default/virtualbox/private_key -p 2222 vagrant@localhost firefox'
-#Start krita remotely using vagrant
-alias krita='vagxapp ./krita-4.1.1-x86_64.appimage &> /dev/null'
-#ngrok
-alias ngrok='~/Downloads/ngrok'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -126,28 +114,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias mvn-scp="reset && mvn clean install && mvn com.vz.mojos:scp-maven-plugin:scp"
-
 #Show git branch in terminal
 git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-#Configure Tomcat directories
-export CATALINA_BASE="/home/likewise-open/NT/jrivera/Downloads/apache-tomcat-8.5.29"
-export CATALINA_HOME="/home/likewise-open/NT/jrivera/Downloads/apache-tomcat-8.5.29"
-export CATALINA_TMPDIR="/home/likewise-open/NT/jrivera/Downloads/apache-tomcat-8.5.29/temp"
-
 export PS1="[\u@\h \W]\[\033[00;32m\]\$(git_branch)\[\033[00m\]\$ "
-export PATH=~/Maven_3.1.1/bin:~/.local/bin:$CATALINA_BASE:$CATALINA_HOME:$CATALINA_TMPDIR:$PATH
 export HISTTIMEFORMAT='%F %T  '
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH=/opt/Sencha/Cmd/5.1.3.61:$PATH
-
-export SENCHA_CMD_3_0_0="/opt/Sencha/Cmd/5.1.3.61"
-
-export MW_HOME="/opt/wls12130"
